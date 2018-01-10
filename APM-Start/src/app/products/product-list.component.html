@@ -46,7 +46,8 @@
             <td>{{product.productCode | lowercase | convertToSpaces:'-'}}</td>
             <td>{{product.releaseDate}}</td>
             <td>{{product.price | currency:'USD':true:'1.2-2' | uppercase }}</td>
-            <td>{{product.starRating}}</td>
+            <!-- rating property from child component is getting data from its parent -->
+            <td><pm-star [rating]="product.starRating" (ratingClicked)='onRatingClicked($event)'></pm-star></td>
           </tr>
 
 
