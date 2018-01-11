@@ -8,6 +8,12 @@ import { ProductService } from './product.service';
     styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
+
+    constructor(private _productService: ProductService) {
+      this.filteredProducts = this.products;
+      this.listFilter = 'cart';
+    }
+
     pageTitle: string = 'Product List';
     imageWidth: number = 50;
     imageMargin: number = 2;
@@ -25,10 +31,6 @@ export class ProductListComponent implements OnInit {
 
     filteredProducts: IProduct[];
     products: IProduct[] = [];
-
-    constructor(private _productService: ProductService) {
-
-    }
 
     onRatingClicked(message: string): void {
         this.pageTitle = 'Product List: ' + message;
